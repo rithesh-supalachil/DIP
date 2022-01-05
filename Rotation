@@ -1,0 +1,28 @@
+Write a program to perform linear transformation on an image.
+
+# Importing the opencv library
+import cv2
+
+# Reading the file
+# Link for image: https://ibb.co/sCYh1vn
+image = cv2.imread('/content/drive/MyDrive/ImageProcess/Lab/Images/image_ncc_1_lq.jpg')
+cv2.imshow(image)
+
+# Extracting the height and width from image
+height, width = image.shape[:2]
+  
+# Get the center coordinates of the image
+center = (width/2, height/2)
+  
+# Get the rotation matrix
+rotate_matrix = cv2.getRotationMatrix2D(center=center, angle=90, scale=1)
+  
+# Rotating the image 90 degree counterclockwise
+rotated_image = cv2.warpAffine(src=image, M=rotate_matrix, dsize=(width, height))
+  
+# display the image
+cv2_imshow( rotated_image )
+
+# save the updated image
+# cv2.imwrite('rotated_image.jpg', rotated_image)
+
