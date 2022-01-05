@@ -1,0 +1,21 @@
+import cv2
+from PIL import Image
+
+dict = { 1: r'C:\Users\User\Downloads\001.jpg',
+         2: r'C:\Users\User\Downloads\002.jpg',
+         3: r'C:\Users\User\Downloads\003.jpg',
+         4: r'C:\Users\User\Downloads\004.jpg',
+         5: r'C:\Users\User\Downloads\005.jpg',
+         6: r'C:\Users\User\Downloads\006.jpg',
+         7: r'C:\Users\User\Downloads\007.jpg'  }
+
+for key, value in dict.items():
+  img = cv2.imread(value)
+  print("Mean of Image" + str(key), img.mean())
+  cv2.imshow("Image", img)
+  cv2.waitKey()
+
+new_image = Image.merge("RGB", (dict[1], dict[2], dict[3], dict[4], dict[5], dict[6], dict[7]))
+new_image.show()
+
+
